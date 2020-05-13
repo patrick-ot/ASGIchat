@@ -4,13 +4,12 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.wait import WebDriverWait
 
 class ChatTests(ChannelsLiveServerTestCase):
-    serve_static = True  # emulate StaticLiveServerTestCase
+    serve_static = True
 
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         try:
-            # NOTE: Requires "chromedriver" binary to be installed in $PATH
             cls.driver = webdriver.Chrome()
         except:
             super().tearDownClass()
@@ -62,8 +61,6 @@ class ChatTests(ChannelsLiveServerTestCase):
                 'Message was improperly received by window 2 from window 1')
         finally:
             self._close_all_new_windows()
-
-    # === Utility ===
 
     def _enter_chat_room(self, room_name):
         self.driver.get(self.live_server_url + '/chat/')
