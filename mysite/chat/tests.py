@@ -13,7 +13,7 @@ class ChatTests(ChannelsLiveServerTestCase):
             cls.driver = webdriver.Chrome()
         except:
             super().tearDownClass()
-            raise
+            raise TypeError("Bad arguments")
 
     @classmethod
     def tearDownClass(cls):
@@ -22,7 +22,7 @@ class ChatTests(ChannelsLiveServerTestCase):
 
     def test_when_chat_message_posted_then_seen_by_everyone_in_same_room(self):
         try:
-            self._enter_chat_room('room_1')
+            self._enter_chat_room('room_1') 
 
             self._open_new_window()
             self._enter_chat_room('room_1')
