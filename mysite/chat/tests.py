@@ -1,13 +1,13 @@
-from channels.testing import ChannelsLiveServerTestCase
-from selenium import webdriver
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.support.wait import WebDriverWait
+from channels.testing import ChannelsLiveServerTestCase # type: ignore
+from selenium import webdriver # type: ignore
+from selenium.webdriver.common.action_chains import ActionChains # type: ignore
+from selenium.webdriver.support.wait import WebDriverWait # type: ignore
 
 class ChatTests(ChannelsLiveServerTestCase):
     serve_static = True
 
     @classmethod
-    def setUpClass(cls):
+    def setUpClass(cls) -> None:
         super().setUpClass()
         try:
             cls.driver = webdriver.Chrome()
@@ -26,7 +26,6 @@ class ChatTests(ChannelsLiveServerTestCase):
 
             self._open_new_window()
             self._enter_chat_room('room_1')
-
             self._switch_to_window(0)
             self._post_message('hello')
             WebDriverWait(self.driver, 2).until(lambda _:

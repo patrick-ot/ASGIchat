@@ -1,6 +1,6 @@
-from channels.auth import AuthMiddlewareStack
-from channels.routing import ProtocolTypeRouter, URLRouter
-import chat.routing
+from channels.auth import AuthMiddlewareStack # type: ignore
+from channels.routing import ProtocolTypeRouter, URLRouter # type: ignore
+import chat.routing # type: ignore
 
 application = ProtocolTypeRouter({
     # (http->django views is added by default)
