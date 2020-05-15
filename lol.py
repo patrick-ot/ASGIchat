@@ -41,3 +41,8 @@ print_numbered([5, 5]) # type: ignore
 from dataclasses import dataclass, field
 
 # mypy: disallow-any-generics
+def p(name: str) -> str:
+    print('hello')
+    print(name)
+    return name
+a = p("Phil") 
